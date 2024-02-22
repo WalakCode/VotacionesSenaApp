@@ -50,8 +50,7 @@ export const AuthProvider = ({ children }) => {
   const votos = async (token, user) => {
     try {
       const result = await voto(token, user);
-      console.log(result.data);
-      console.log(result.response);
+      console.log(result)
     } catch (error) {
       if (error.response) {
         const errorData = error.response.data;

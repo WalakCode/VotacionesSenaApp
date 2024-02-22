@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { AlertVoto } from "../context/AletError";
 import "../public/style.css";
 
 function VotoPage() {
@@ -11,7 +12,7 @@ function VotoPage() {
   const { state } = useLocation();
   const token = state.token;
   const [candidatos, setCandidatos] = useState([]);
-  const [mensaje, setMensaje]= useState();
+  const [mensaje, setMensaje] = useState();
   const navegate = useNavigate();
 
   // Agregar un candidato adicional
@@ -44,13 +45,14 @@ function VotoPage() {
 
       if (result.errorData) {
         if (result.errorResponse === 500) {
-
           setMensaje(result.errorData);
           navegate("/");
         }
         if (result.errorResponse === 400) {
           setMensaje(result.errorData);
-          // navegate("/");
+          setTimeout(() => {
+            navegate("/");
+          }, 2000);
         }
       }
     } catch (error) {
@@ -76,9 +78,12 @@ function VotoPage() {
     </div>
   ));
 
-  return <div className="container-datos">{renderCandidatos}
-  {mensaje && <p>{mensaje}</p>}
-  </div>;
+  return (
+    <div className="container-datos">
+      {renderCandidatos}
+      {mensaje && <AlertVoto />}
+    </div>
+  );
 }
 
 export default VotoPage;
