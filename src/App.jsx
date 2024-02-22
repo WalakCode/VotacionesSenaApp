@@ -3,6 +3,7 @@ import LoginPage from "../page/LoginPage";
 import { AuthProvider } from "../context/AuthContext";
 import VotoPage from "../page/VotoPage";
 import ProtectedRouters from "../context/ProtectedRouters";
+import AdminPage from "../page/AdminPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
 
           <Route element={<ProtectedRouters />}>
             <Route path="/voto" element={<VotoPage />} />
+            <Route path="/admin" element={<AdminPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

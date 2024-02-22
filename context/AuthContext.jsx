@@ -1,4 +1,9 @@
-import { loginRequest, getCandidatos, voto } from "../api/auths";
+import {
+  loginRequest,
+  getCandidatos,
+  voto,
+  getEstadisticas,
+} from "../api/auths";
 import { createContext, useState, useContext } from "react";
 
 export const AuthContext = createContext();
@@ -38,9 +43,9 @@ export const AuthProvider = ({ children }) => {
   };
 
   // obtiene los candidatos
-  const getCandi = async (values) => {
+  const getCandi = async (token) => {
     try {
-      const results = await getCandidatos(values);
+      const results = await getCandidatos(token);
       const Data = results.data.info;
       return { Data: Data };
     } catch (error) {
@@ -50,17 +55,27 @@ export const AuthProvider = ({ children }) => {
   const votos = async (token, user) => {
     try {
       const result = await voto(token, user);
-      console.log(result)
+      const resultData = result.data;
+      const resultResponse = result.status;
+      return { resultData: resultData, resultResponse: resultResponse };
     } catch (error) {
       if (error.response) {
         const errorData = error.response.data;
         const errorResponse = error.response.status;
-        // console.log(errorData)
-        // console.log(errorResponse)
         return { errorData: errorData, errorResponse: errorResponse };
       } else {
         console.log(error);
       }
+    }
+  };
+
+  const estadisticas = async (token) => {
+    try {
+      const result = await getEstadisticas(token);
+      const Data = result.data.info; 
+      return { Data: Data };
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -69,7 +84,8 @@ export const AuthProvider = ({ children }) => {
       value={{
         singIn,
         getCandi,
-        votos, 
+        votos,
+        estadisticas,
         user,
         isAuthenticated,
         setUser,

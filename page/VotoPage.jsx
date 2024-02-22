@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { AlertVoto } from "../context/AletError";
+import { AlertError, AlertVoto, AlertVotoEXitoso } from "../context/AletError";
 import "../public/style.css";
 
 function VotoPage() {
@@ -17,8 +17,8 @@ function VotoPage() {
 
   // Agregar un candidato adicional
   const candidatoPersonalizado = {
-    nombre: "Hansen",
-    cedula: "123456789",
+    nombre: "Voto en blanco",
+    cedula: "",
     id_candidatos: 99999,
   };
 
@@ -40,19 +40,32 @@ function VotoPage() {
   // ejerce el voto
   const onSubmit = async (values) => {
     try {
-      // console.log(values)
       const result = await votos(token, values);
 
-      if (result.errorData) {
-        if (result.errorResponse === 500) {
-          setMensaje(result.errorData);
-          navegate("/");
-        }
-        if (result.errorResponse === 400) {
-          setMensaje(result.errorData);
+      if (result.resultData) {
+        if (result.resultResponse) {
+          setMensaje(<AlertVotoEXitoso />);
           setTimeout(() => {
             navegate("/");
           }, 2000);
+        }
+      } else {
+        if (result.errorData) {
+          if (result.errorResponse === 500) {
+            setMensaje(<AlertError />);
+            setTimeout(() => {
+              navegate("/");
+            }, 2000);
+            // navegate("/");
+          } else {
+            if (result.errorResponse === 400) {
+              // console.log(errorResponse);
+              setMensaje(<AlertVoto />);
+              setTimeout(() => {
+                navegate("/");
+              }, 2000);
+            }
+          }
         }
       }
     } catch (error) {
@@ -61,12 +74,13 @@ function VotoPage() {
   };
 
   const candidatosConPersonalizado = [...candidatos, candidatoPersonalizado];
-
+  const image =`../public/img/`;
   const renderCandidatos = candidatosConPersonalizado.map((candidato) => (
     <div key={candidato.id_candidatos} className="container">
       <form onSubmit={handleSubmit(onSubmit)}>
         <p>{candidato.nombre}</p>
         <p>{candidato.cedula}</p>
+        <img src={`${image}${candidato.img_tarjeton}`}/>
         <button
           type="button"
           {...register("candidatoID")}
@@ -81,7 +95,7 @@ function VotoPage() {
   return (
     <div className="container-datos">
       {renderCandidatos}
-      {mensaje && <AlertVoto />}
+      {mensaje}
     </div>
   );
 }

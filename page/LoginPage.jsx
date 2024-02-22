@@ -24,13 +24,12 @@ function LoginPage() {
           }
           // logica del administrador
           if (tokenDatos.rol === "admin") {
-            console.log("administrador");
+            navegate("/admin", { state: { token } });
           }
         }
       }
       if (result.errorData) {
         if (result.errorResponse === 500) {
-
           setMensaje(result.errorData);
           navegate("/");
         }
