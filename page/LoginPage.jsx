@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
 import { decodeToken } from "react-jwt";
-import { useNavigate } from "react-router-dom";
-import imgFondo from "../public/img/img-login.jpeg";
+import { useNavigate, Link } from "react-router-dom";
 import imgDocumento from "../public/img/img-documento.png";
 import imgFicha from "../public/img/img-ficha.png";
-import imgEstudiantes from "../public/img/img-body-login.jpeg";
+import imgEstudiantes from "../public/img/img-body-login.jpg";
 import logoSENA from "../public/img/Logotipo-SENA-PRINCIPAL.png";
 import logotipoSENA from "../public/img/Logosimbolo-SENA-PRINCIPAL.png";
+import lineaSVG from "../public/sgv/lineas.svg";
 import "../public/style/style.css";
 
 function LoginPage() {
@@ -16,6 +16,8 @@ function LoginPage() {
   const navegate = useNavigate();
   const { singIn } = useAuth();
   const [mensaje, setMensaje] = useState(null);
+
+ 
 
   const onSubmit = handleSubmit(async (values) => {
     try {
@@ -55,16 +57,22 @@ function LoginPage() {
   return (
     <div className="container-login-body">
       <div className="container-login">
-      <img src={logotipoSENA} alt="Logo del SENA" className="img-sena" />
         {/* formulario */}
         <div className="container-form">
-          <p>
+          <div className="container-imgSena">
+            <img src={logotipoSENA} alt="Logo del SENA" className="img-sena" />
+          </div>
+          <h1 className="title-votaciones">
             Votaciones <br /> SENA
-          </p>
+          </h1>
           <form onSubmit={onSubmit}>
             {/* cedula */}
             <div className="container-input">
-              <img src={imgDocumento} alt="Imagen icono cedula" />
+              <img
+                src={imgDocumento}
+                alt="Imagen icono cedula"
+                className="img-documento"
+              />
               <input
                 type="text"
                 placeholder="cedula"
@@ -73,7 +81,11 @@ function LoginPage() {
             </div>
             {/* ficha */}
             <div className="container-input">
-              <img src={imgFicha} alt="Imagen icono ficha" />
+              <img
+                src={imgFicha}
+                alt="Imagen icono ficha"
+                className="img-ficha"
+              />
               <input
                 type="text"
                 placeholder="ficha"
@@ -82,10 +94,11 @@ function LoginPage() {
             </div>
             {/* boton  */}
             <br />
-            <button type="submit">Ingresa</button>
-
-            {mensaje && <p>{mensaje}</p>}
+            <button type="submit" className="button-ingresa">
+              Ingresa
+            </button>
           </form>
+
           <div className="container-img-estudiantes">
             <img
               className="img-estudiantes"
@@ -96,14 +109,51 @@ function LoginPage() {
             <div className="circle bottom-left"></div>
           </div>
 
-          <img src={logoSENA} alt="Imagen nombre SENA"  className="logo-sena"/>
+          <img src={logoSENA} alt="Imagen nombre SENA" className="logo-sena" />
         </div>
 
         {/* contaier img */}
-        <div className="container-img">
-          <img src={imgFondo} alt="Imagen fondo login lado lateral" />
+        <div className="container-fondo-info">
+          <div className="container-info">
+            <img src={lineaSVG} alt="SVG de líneas" />
+            <div className="container-text">
+              <p className="bienvenidad">¡Bienvenido al dia de votaciones!</p>
+
+              <p className="text-1">
+                Aqui podras votar por el Aprendiz que representara tu jornada.
+              </p>
+              <p className="text-2">
+                Recuerda cada voto cuenta y es una oportunidad para elegir a
+                alguien <br /> comprometido y dispuesto a trabajar en beneficio
+                de todos. Se trata <br /> de construir juntos un entorno
+                educativo que refleje nuestras <br /> necesidades y
+                aspiraciones.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
+      {mensaje && (
+        <div className="container-mensaje-overlay">
+          <div className="conatiner-mensaje">
+            <div className="container-blue">
+              <p>{mensaje}</p>
+            </div>
+
+            <div className="container-white">
+              <p>
+                Revisa tus credenciales e intenta de <br /> nuevo o recarga la
+                pagina
+              </p>
+
+              <div className="container-button">
+                <button>Regresa</button>
+                <Link to="/" className="regresar-link">Rejhddhfe</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
