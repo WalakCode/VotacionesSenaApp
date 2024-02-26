@@ -17,8 +17,6 @@ function LoginPage() {
   const { singIn } = useAuth();
   const [mensaje, setMensaje] = useState(null);
 
- 
-
   const onSubmit = handleSubmit(async (values) => {
     try {
       const result = await singIn(values);
@@ -147,8 +145,11 @@ function LoginPage() {
               </p>
 
               <div className="container-button">
-                <button>Regresa</button>
-                <Link to="/" className="regresar-link">Rejhddhfe</Link>
+                <button>
+                  <Link to="/voto" className="regresar-link">
+                    Regresa
+                  </Link>
+                </button>
               </div>
             </div>
           </div>

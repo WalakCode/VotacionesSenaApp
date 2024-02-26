@@ -226,11 +226,20 @@ body {
           background-color: #39A900;
           border-radius: 5px;
           border: transparent;
-          color: white;
           
           font-size: 18px;
           width: 160px;
           height: 35px;
+          
+          .regresar-link{
+            color: white;
+            padding: 6px;
+            padding-right: 40px;
+            padding-left: 40px;
+            background-color: red;
+            text-decoration: none;
+            
+          }
         }
       }
     }
