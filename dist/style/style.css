@@ -1,0 +1,220 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container-login-body {
+  margin: 0;
+  height: 100vh;
+}
+.container-login-body .img-sena {
+  top: 10px;
+  width: 100px;
+  height: auto;
+  z-index: 999;
+}
+.container-login-body .container-login {
+  display: flex;
+  height: 100%;
+}
+.container-login-body .container-login .container-form {
+  height: 800px;
+  font-family: "Work Sans", sans-serif;
+  text-align: center;
+  width: 520px;
+}
+@media (max-width: 1240px) {
+  .container-login-body .container-login .container-form {
+    width: 100%;
+  }
+}
+@media (max-width: 460px) {
+  .container-login-body .container-login .container-form {
+    transform: scale(0.9);
+  }
+}
+@media (max-width: 400px) {
+  .container-login-body .container-login .container-form {
+    transform: scale(0.8);
+  }
+}
+.container-login-body .container-login .container-form .container-imgSena {
+  text-align: start;
+}
+.container-login-body .container-login .container-form .title-votaciones {
+  font-size: 50px;
+  font-weight: bold;
+  color: #00324d;
+  margin: 0px 0px 0px 0px;
+}
+.container-login-body .container-login .container-form .container-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin-top: 4vh;
+}
+.container-login-body .container-login .container-form .container-input .img-documento {
+  height: 60px;
+}
+.container-login-body .container-login .container-form .container-input .img-ficha {
+  height: 55px;
+}
+.container-login-body .container-login .container-form .container-input input {
+  font-family: "Work Sans", sans-serif;
+  height: 35px;
+  width: 300px;
+  border-radius: 5px;
+  border: transparent;
+  background-color: rgba(0, 50, 77, 0.32);
+  color: #00324d;
+  padding: 2px 2px 2px 10px;
+}
+.container-login-body .container-login .container-form .container-input input::placeholder {
+  color: #00324d;
+}
+.container-login-body .container-login .container-form .button-ingresa {
+  margin-top: 4vh;
+  background-color: #00324d;
+  border-radius: 5px;
+  border: transparent;
+  color: white;
+  font-family: "Work Sans", sans-serif;
+  font-size: 18px;
+  width: 160px;
+  height: 35px;
+}
+.container-login-body .container-login .container-img-estudiantes {
+  margin: 0 auto;
+  margin-top: 8vh;
+  position: relative;
+  width: 300px;
+}
+.container-login-body .container-login .container-img-estudiantes .img-estudiantes {
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+  object-fit: cover;
+}
+.container-login-body .container-login .container-img-estudiantes .circle {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+}
+.container-login-body .container-login .container-img-estudiantes .circle.top-right {
+  top: 0;
+  right: 0;
+}
+.container-login-body .container-login .container-img-estudiantes .circle.bottom-left {
+  bottom: 0;
+  left: 0;
+}
+.container-login-body .container-login .logo-sena {
+  margin-top: 4vh;
+  width: 300px;
+}
+.container-login-body .container-login .container-fondo-info {
+  background-color: #39a900;
+  width: 73%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 1240px) {
+  .container-login-body .container-login .container-fondo-info {
+    display: none;
+  }
+}
+.container-login-body .container-login .container-fondo-info .container-info {
+  font-family: "Work Sans", sans-serif;
+  display: flex;
+  justify-content: end;
+  position: relative;
+  padding-right: 10%;
+}
+.container-login-body .container-login .container-fondo-info .container-info img {
+  position: absolute;
+  left: 0;
+}
+.container-login-body .container-login .container-fondo-info .container-info .container-text {
+  color: white;
+  width: 60%;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.container-login-body .container-login .container-fondo-info .container-info .container-text .bienvenidad {
+  font-size: 6vh;
+  font-weight: bold;
+}
+.container-login-body .container-login .container-fondo-info .container-info .container-text .text-1 {
+  text-align: justify;
+  font-size: 3vh;
+}
+.container-login-body .container-login .container-fondo-info .container-info .container-text .text-2 {
+  text-align: justify;
+  font-size: 3vh;
+}
+.container-login-body .container-mensaje-overlay {
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 998;
+}
+.container-login-body .container-mensaje-overlay .conatiner-mensaje {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 400px;
+  max-width: 80%;
+  height: 29%;
+  border-radius: 10px;
+}
+.container-login-body .container-mensaje-overlay .conatiner-mensaje p {
+  font-family: "Work Sans", sans-serif;
+  margin: 0px;
+}
+.container-login-body .container-mensaje-overlay .conatiner-mensaje .container-white p {
+  font-family: "Work Sans", sans-serif;
+  font-size: 2.2vh;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+.container-login-body .container-mensaje-overlay .conatiner-mensaje .container-blue {
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+  background-color: #00324d;
+  height: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 130%;
+}
+.container-login-body .container-mensaje-overlay .conatiner-mensaje .container-button {
+  background-color: rgba(0, 50, 77, 0.24);
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container-login-body .container-mensaje-overlay .conatiner-mensaje .container-button button {
+  background-color: #39A900;
+  border-radius: 5px;
+  border: transparent;
+  color: white;
+  font-size: 18px;
+  width: 160px;
+  height: 35px;
+}
+
+/*# sourceMappingURL=style.css.map */
