@@ -4,7 +4,6 @@ import { useAuth } from "../context/AuthContext";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { AlertError, AlertVoto, AlertVotoEXitoso } from "../context/AletError";
-import "../public/style.css";
 
 function VotoPage() {
   const { register, handleSubmit } = useForm();
