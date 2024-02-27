@@ -6,7 +6,7 @@ import { useNavigate, Link } from "react-router-dom";
 import imgDocumento from "../public/img/img-documento.png";
 import imgFicha from "../public/img/img-ficha.png";
 import imgEstudiantes from "../public/img/img-body-login.jpg";
-import logoSENA from "../public/img/Logotipo-SENA-PRINCIPAL.png";
+import logoSENA from "../public/img/logo-sena.png";
 import logotipoSENA from "../public/img/Logosimbolo-SENA-PRINCIPAL.png";
 import lineaSVG from "../public/sgv/lineas.svg";
 import "../public/style/style.css";
@@ -59,10 +59,10 @@ function LoginPage() {
         <div className="container-form">
           <div className="container-imgSena">
             <img src={logotipoSENA} alt="Logo del SENA" className="img-sena" />
+            <h1 className="title-votaciones">
+              Votaciones <br /> SENA
+            </h1>
           </div>
-          <h1 className="title-votaciones">
-            Votaciones <br /> SENA
-          </h1>
           <form onSubmit={onSubmit}>
             {/* cedula */}
             <div className="container-input">
@@ -103,8 +103,6 @@ function LoginPage() {
               src={imgEstudiantes}
               alt="Imagen de aprendices"
             />
-            <div className="circle top-right"></div>
-            <div className="circle bottom-left"></div>
           </div>
 
           <img src={logoSENA} alt="Imagen nombre SENA" className="logo-sena" />
