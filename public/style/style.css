@@ -112,6 +112,11 @@ body {
 .container-login-body .container-login .logo-sena {
   width: 300px;
 }
+.container-login-body .container-login .text-adso {
+  display: block;
+  margin: 0 auto;
+  text-align: end;
+}
 .container-login-body .container-login .container-fondo-info {
   background-color: #39a900;
   width: 73%;

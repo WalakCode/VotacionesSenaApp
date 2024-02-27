@@ -106,9 +106,10 @@ function LoginPage() {
           </div>
 
           <img src={logoSENA} alt="Imagen nombre SENA" className="logo-sena" />
+         <p className="text-adso">ADSO 2560414</p>
         </div>
 
-        {/* contaier img */}
+        {/* container text rigth */}
         <div className="container-fondo-info">
           <div className="container-info">
             <img src={lineaSVG} alt="SVG de líneas" />
@@ -129,6 +130,7 @@ function LoginPage() {
           </div>
         </div>
       </div>
+      {/* mesaje modal */}
       {mensaje && (
         <div className="container-mensaje-overlay">
           <div className="conatiner-mensaje">
