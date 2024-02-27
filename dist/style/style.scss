@@ -17,13 +17,14 @@ body {
   .container-login {
     display: flex;
     height: 100%;
+    justify-content: center;
+    align-items: center;
 
     .container-form {
-      height: 800px;
+      // background-color: red;
       font-family: "Work Sans", sans-serif;
       text-align: center;
       width: 520px;
-
       @media (max-width: 1240px) {
         width: 100%;
       }
@@ -33,14 +34,21 @@ body {
       @media (max-width: 400px) {
         transform: scale(0.8);
       }
+
       .container-imgSena {
-        text-align: start;
+        width: 100%;
+        // background-color: red;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        height: 100px;
+        
       }
       .title-votaciones {
         font-size: 50px;
         font-weight: bold;
         color: #00324d;
-        margin: 0px 0px 0px 0px;
+        margin: 0px 90px 0px 0px;
       }
 
       .container-input {
@@ -48,7 +56,7 @@ body {
         justify-content: center;
         align-items: center;
         gap: 18px;
-        margin-top: 4vh;
+        margin-top: 5%;
 
         .img-documento {
           height: 60px;
@@ -71,7 +79,7 @@ body {
         }
       }
       .button-ingresa {
-        margin-top: 4vh;
+        margin-top: 2%;
         background-color: #00324d;
         border-radius: 5px;
         border: transparent;
@@ -81,41 +89,31 @@ body {
         width: 160px;
         height: 35px;
       }
+      .button-ingresa:hover {
+       transform: scale(1.1);
+       transition: 0.4s;
+      }
+      .button-ingresa:not(hover) {
+       transform: scale(1);
+       transition: 0.4s;
+      }
     }
     .container-img-estudiantes {
       margin: 0 auto;
-      margin-top: 8vh;
+      margin-top: 5%;
       position: relative;
       width: 300px;
 
       .img-estudiantes {
         width: 100%;
         height: 100%;
-        border-radius: 40px;
+        border-radius: 20px;
         object-fit: cover;
-      }
-
-      .circle {
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        background-color: white;
-        border-radius: 50%;
-      }
-
-      .circle.top-right {
-        top: 0;
-        right: 0;
-      }
-
-      .circle.bottom-left {
-        bottom: 0;
-        left: 0;
       }
     }
 
     .logo-sena {
-      margin-top: 4vh;
+      // margin-top: 1%;
       width: 300px;
     }
 
@@ -131,6 +129,7 @@ body {
       }
 
       .container-info {
+        height: 100%;
         font-family: "Work Sans", sans-serif;
         display: flex;
         justify-content: end;
@@ -138,9 +137,11 @@ body {
         padding-right: 10%;
 
         img {
+          height: 100%;
           position: absolute;
           left: 0;
         }
+
         .container-text {
           color: white;
           width: 60%;
@@ -154,14 +155,11 @@ body {
           }
 
           .text-1 {
-            // width: 200vh;
             text-align: justify;
-            // background-color: blue;
             font-size: 3vh;
           }
           .text-2 {
             text-align: justify;
-            // background-color: red;
             font-size: 3vh;
           }
         }
@@ -170,8 +168,6 @@ body {
   }
 
   .container-mensaje-overlay {
-    // justify-content: center;
-    
     text-align: center;
     position: fixed;
     top: 0;
@@ -179,7 +175,7 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.3);
-    z-index: 998; 
+    z-index: 998;
 
     .conatiner-mensaje {
       position: fixed;
@@ -196,13 +192,12 @@ body {
         margin: 0px;
       }
 
-      .container-white{
-        p{
+      .container-white {
+        p {
           font-family: "Work Sans", sans-serif;
           font-size: 2.2vh;
-          margin-top: 2vh;
+          // margin-top: 2vh;
           margin-bottom: 2vh;
-
         }
       }
       .container-blue {
@@ -223,15 +218,31 @@ body {
         align-items: center;
         justify-content: center;
         button {
-          background-color: #39A900;
+          background-color: #39a900;
           border-radius: 5px;
           border: transparent;
-          color: white;
-          
+
           font-size: 18px;
           width: 160px;
           height: 35px;
+
+          .regresar-link {
+            color: white;
+            padding: 6px;
+            padding-right: 40px;
+            padding-left: 40px;
+            text-decoration: none;
+          }
         }
+        button:hover {
+          transform: scale(1.1);
+          color: red;
+          transition: 0.3s;
+         }
+         button:not(hover) {
+          transform: scale(1);
+          transition: 0.3s;
+         }
       }
     }
   }
