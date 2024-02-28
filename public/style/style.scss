@@ -284,12 +284,13 @@ body {
       flex-wrap: wrap;
 
       .container-tarjetones {
-        height: 598px;
+        height: 625px;
         width: 380px;
         margin-top: 10px;
         background-color: rgba(0, 50, 77, 0.15);
         border: transparent;
         border-radius: 2px;
+        
         @media (max-width: 450px) {
           scale: (0.8);
         }
@@ -322,14 +323,12 @@ body {
 
         .container-name-formacion {
           text-align: center;
+          height: 3EM;
           h3 {
             color: #00324d;
             margin: 0px;
           }
-          h4 {
-            color: #00324d;
-            margin: 0px;
-          }
+          
         }
 
         .container-img-candidato {

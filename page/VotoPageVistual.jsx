@@ -80,7 +80,7 @@ function VotoPageVirtual() {
 
   console.log(candidatos);
   const candidatosConPersonalizado = [...candidatos, candidatoPersonalizado];
-  const ruta = `../public/img-candidatos/`;
+  const ruta = `/img-candidatos/`;
   const renderCandidatos = candidatosConPersonalizado.map((candidato) => (
     // container-card
     <div className="container-tarjetones" key={candidato.id_candidatos}>
