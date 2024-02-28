@@ -21,7 +21,6 @@ function LoginPage() {
     try {
       const result = await singIn(values);
 
-      // manejo de respuesta si se logea de manera correcta 202
       if (result.resultSatus) {
         if (result.resultSatus === 200) {
           const token = result.token;
@@ -31,16 +30,16 @@ function LoginPage() {
 
             if(jornada === 1){
               console.log("jornada de la mañana")
-              navegate("/Votos", { state: { token } });
+              navegate("/VotarMañana", { state: { token } });
             }
             if(jornada === 2){
-              console.log("jornada de la tarde")
+              navegate("/VotarTarde", { state: { token } });
             }
             if(jornada === 3){
-              console.log("jornada de la noche")
+              navegate("/VotarNoche", { state: { token } });
             }
             if(jornada === 4){
-              console.log("jornada de la virtual")
+              navegate("/VotarVirtual", { state: { token } });
             }
           }
           // logica del administrador
@@ -160,7 +159,7 @@ function LoginPage() {
 
               <div className="container-button">
                 <button>
-                  <Link to="/voto" className="regresar-link">
+                  <Link to="/admin" className="regresar-link">
                     Regresa
                   </Link>
                 </button>

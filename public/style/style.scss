@@ -273,18 +273,18 @@ body {
 
   // container tarjetones
   .container-all-tarjetones {
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    gap: 20px;
-    flex-wrap: wrap;
-
     .container-candidatos {
-    
+      // display: flex;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      gap: 20px;
+      flex-wrap: wrap;
+
       .container-tarjetones {
-        height: 622px;
+        height: 598px;
         width: 380px;
         margin-top: 10px;
         background-color: rgba(0, 50, 77, 0.15);
@@ -355,14 +355,15 @@ body {
           margin-left: 8px;
           margin-bottom: 8px;
           background-color: #00324d;
-          box-shadow: 0px 8px 0px #ffce40, -8px 5px 0px #ffce40;
+          // box-shadow: 5px 5px 0px #ffce40, -5px 5px 0px #ffce40;
+          box-shadow: 0px 8px 0px #ffce40, -8px 8px 0px #ffce40;
           display: flex;
           gap: 30px;
           justify-content: center;
           align-items: center;
           color: white;
 
-          h3{
+          h3 {
             margin: 0px;
           }
           p {
@@ -371,26 +372,42 @@ body {
             margin: 0px;
           }
           button {
-            width: 95px;
-            height: 28px;
-            background-color: transparent;
-            border-radius: 5px;
-            border: transparent;
-            border-radius: none;
-            color: white;
-            font-family: "Work Sans", sans-serif;
-            font-size: 20px;
-            font-weight: bold;
+            width: 200px;
+            height: 35px;
+            font-size: 18px;
+            background: #20c20e; 
+            color: white; 
+            border: transparent; 
+            border-radius: 3px; 
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            display: inline-block;
           }
           button:hover {
-            transition: 0.3s;
-            background-color: white;
-            color: #00324d;
-            transform: scale(1.01);
+            color: #20c20e; /* color de fuente hover */
           }
-          button:not(hover) {
-            transition: 0.3s;
-            transform: scale(1);
+          button::after {
+            content: "";
+            background: white; /* color de fondo hover */
+            position: absolute;
+            z-index: -1;
+            padding: 16px 20px;
+            display: block;
+            top: 0;
+            bottom: 0;
+            left: -100%;
+            right: 100%;
+            -webkit-transition: all 0.35s;
+            transition: all 0.35s;
+          }
+          button:hover::after {
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            -webkit-transition: all 0.35s;
+            transition: all 0.35s;
           }
         }
       }
