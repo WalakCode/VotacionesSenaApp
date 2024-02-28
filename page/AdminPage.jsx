@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useLocation } from "react-router-dom";
-import GraficaBarra from "./GraficaBarra";
 import { Line } from "react-chartjs-2";
 
 import {

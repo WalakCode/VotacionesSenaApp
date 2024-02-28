@@ -4,6 +4,7 @@ import { AuthProvider } from "../context/AuthContext";
 import VotoPage from "../page/VotoPage";
 import ProtectedRouters from "../context/ProtectedRouters";
 import AdminPage from "../page/AdminPage";
+import VotoMañana from "../page/VotoMañana";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path="*" element={<p>Ruta no encontrada</p>} />
           <Route path="/" element={<LoginPage />} />
+          <Route path="/Votos" element={<VotoMañana />} />
 
           <Route element={<ProtectedRouters />}>
             <Route path="/voto" element={<VotoPage />} />

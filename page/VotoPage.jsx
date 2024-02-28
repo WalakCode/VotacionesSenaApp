@@ -72,24 +72,25 @@ function VotoPage() {
     }
   };
 
-  const candidatosConPersonalizado = [...candidatos, candidatoPersonalizado];
-  const image =`../public/img/`;
-  const renderCandidatos = candidatosConPersonalizado.map((candidato) => (
-    <div key={candidato.id_candidatos} className="container">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <p>{candidato.nombre}</p>
-        <p>{candidato.cedula}</p>
-        <img src={`${image}${candidato.img_tarjeton}`}/>
-        <button
-          type="button"
-          {...register("candidatoID")}
-          onClick={() => onSubmit(candidato.id_candidatos)}
-        >
-          subir
-        </button>
-      </form>
-    </div>
-  ));
+  // const candidatosConPersonalizado = [...candidatos, candidatoPersonalizado];
+  // const ruta =`../public/img-candidatos/`;
+  // const renderCandidatos = candidatosConPersonalizado.map((candidato) => (
+  //   <div key={candidato.id_candidatos} className="container">
+  //     <form onSubmit={handleSubmit(onSubmit)}>
+  //       <p>Nombre {candidato.nombre}</p>
+  //       <p>{candidato.cedula}</p>
+  //       <p>{candidato.ficha}</p>
+  //       <img src={`${ruta}${candidato.img_candidato}`}/>
+  //       <button
+  //         type="button"
+  //         {...register("candidatoID")}
+  //         onClick={() => onSubmit(candidato.id_candidatos)}
+  //       >
+  //         Votar
+  //       </button>
+  //     </form>
+  //   </div>
+  // ));
 
   return (
     <div className="container-datos">

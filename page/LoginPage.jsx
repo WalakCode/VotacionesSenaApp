@@ -27,7 +27,21 @@ function LoginPage() {
           const token = result.token;
           const tokenDatos = decodeToken(token);
           if (tokenDatos.rol === "user") {
-            navegate("/voto", { state: { token } });
+            const jornada = tokenDatos.jornadaID;
+
+            if(jornada === 1){
+              console.log("jornada de la mañana")
+              navegate("/Votos", { state: { token } });
+            }
+            if(jornada === 2){
+              console.log("jornada de la tarde")
+            }
+            if(jornada === 3){
+              console.log("jornada de la noche")
+            }
+            if(jornada === 4){
+              console.log("jornada de la virtual")
+            }
           }
           // logica del administrador
           if (tokenDatos.rol === "admin") {
@@ -106,7 +120,7 @@ function LoginPage() {
           </div>
 
           <img src={logoSENA} alt="Imagen nombre SENA" className="logo-sena" />
-         <p className="text-adso">ADSO 2560414</p>
+         
         </div>
 
         {/* container text rigth */}
@@ -114,7 +128,7 @@ function LoginPage() {
           <div className="container-info">
             <img src={lineaSVG} alt="SVG de líneas" />
             <div className="container-text">
-              <p className="bienvenidad">¡Bienvenido al dia de votaciones!</p>
+              <p className="bienvenidad">¡Bienvenido al dia de votaciones en el CPYA!</p>
 
               <p className="text-1">
                 Aqui podras votar por el Aprendiz que representara tu jornada.
