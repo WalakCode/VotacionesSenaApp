@@ -262,11 +262,11 @@ body {
   flex-direction: row;
   gap: 20px;
   flex-wrap: wrap;
-  margin-top: 10px;
 }
 .container-page-votos .container-all-tarjetones .container-candidatos .container-tarjetones {
-  height: 620px;
+  height: 622px;
   width: 380px;
+  margin-top: 10px;
   background-color: rgba(0, 50, 77, 0.15);
   border: transparent;
   border-radius: 2px;
@@ -304,6 +304,10 @@ body {
   color: #00324d;
   margin: 0px;
 }
+.container-page-votos .container-all-tarjetones .container-candidatos .container-tarjetones .container-name-formacion h4 {
+  color: #00324d;
+  margin: 0px;
+}
 .container-page-votos .container-all-tarjetones .container-candidatos .container-tarjetones .container-img-candidato {
   text-align: center;
 }
@@ -334,9 +338,13 @@ body {
   align-items: center;
   color: white;
 }
+.container-page-votos .container-all-tarjetones .container-candidatos .container-tarjetones .container-numero-ficha h3 {
+  margin: 0px;
+}
 .container-page-votos .container-all-tarjetones .container-candidatos .container-tarjetones .container-numero-ficha p {
   font-size: 50px;
   font-weight: bold;
+  margin: 0px;
 }
 .container-page-votos .container-all-tarjetones .container-candidatos .container-tarjetones .container-numero-ficha button {
   width: 95px;
