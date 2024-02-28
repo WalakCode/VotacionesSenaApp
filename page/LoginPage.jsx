@@ -3,12 +3,12 @@ import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
 import { decodeToken } from "react-jwt";
 import { useNavigate, Link } from "react-router-dom";
-import imgDocumento from "../public/img/img-documento.png";
-import imgFicha from "../public/img/img-ficha.png";
-import imgEstudiantes from "../public/img/img-body-login.jpg";
-import logoSENA from "../public/img/logo-sena.png";
-import logotipoSENA from "../public/img/Logosimbolo-SENA-PRINCIPAL.png";
-import lineaSVG from "../public/sgv/lineas.svg";
+import imgDocumento from "/img/img-documento.png";
+import imgFicha from "/img/img-ficha.png";
+import imgEstudiantes from "/img/img-body-login.jpg";
+import logoSENA from "/img/logo-sena.png";
+import logotipoSENA from "/img/Logosimbolo-SENA-PRINCIPAL.png";
+import lineaSVG from "/sgv/lineas.svg";
 import "../public/style/style.css";
 
 function LoginPage() {

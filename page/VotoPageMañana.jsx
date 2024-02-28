@@ -4,7 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { AlertError, AlertVoto, AlertVotoEXitoso } from "../context/AletError";
-import simboloSena from "../public/img/Logosimbolo-SENA-PRINCIPAL.png";
+import simboloSena from "/img/Logosimbolo-SENA-PRINCIPAL.png";
 
 function VotoPageMañana() {
   const { register, handleSubmit } = useForm();
