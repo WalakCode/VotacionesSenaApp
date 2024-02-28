@@ -127,7 +127,7 @@ function VotoPageTarde() {
   return (
     <div className="container-page-votos">
       <div className="container-text">
-        <p>Candidatos Jornada Mañana </p>
+        <p>Candidatos Jornada Tarde </p>
       </div>
 
       <div className="container-all-tarjetones">
