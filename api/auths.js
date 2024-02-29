@@ -31,3 +31,4 @@ export const getEstadisticas = (token) =>
       Authorization: `Bearer ${token}`,
     },
   });
+

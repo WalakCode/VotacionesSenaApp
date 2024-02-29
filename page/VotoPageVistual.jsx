@@ -48,26 +48,15 @@ function VotoPageVirtual() {
 
       if (result.resultData) {
         if (result.resultResponse) {
-          setMensaje(<AlertVotoEXitoso />);
-          setTimeout(() => {
-            navegate("/");
-          }, 2000);
+          setMensaje(result.resultData);
         }
       } else {
         if (result.errorData) {
           if (result.errorResponse === 500) {
-            setMensaje(<AlertError />);
-            setTimeout(() => {
-              navegate("/");
-            }, 2000);
-            // navegate("/");
+            setMensaje(result.errorData);
           } else {
             if (result.errorResponse === 400) {
-              // console.log(errorResponse);
-              setMensaje(<AlertVoto />);
-              setTimeout(() => {
-                navegate("/");
-              }, 2000);
+              setMensaje(result.errorData);
             }
           }
         }
@@ -76,6 +65,9 @@ function VotoPageVirtual() {
       console.log(error);
     }
   };
+  function redirect() {
+    window.location.reload();
+  }
 
   console.log(candidatos);
   const candidatosConPersonalizado = [...candidatos, candidatoPersonalizado];

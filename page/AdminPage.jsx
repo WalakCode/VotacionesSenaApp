@@ -45,35 +45,45 @@ function AdminPage() {
     obtenerEstadisticas();
   }, [estadisticas, token]);
 
+  console.log(estadisticasDatos)
+
   const graficosPorJornada = Object.keys(estadisticasDatos).map((jornada) => {
+
     const nameCandidato = [];
     const quantityVotos = [];
 
-    if (Array.isArray(estadisticasDatos[jornada])) {
-      estadisticasDatos[jornada].forEach((voto, index) => {
-        const nombreCandidato = voto.nombre_votante;
-        nameCandidato.push(nombreCandidato);
-        const cantidadVotos = voto.cantidad_votos;
-        quantityVotos.push(cantidadVotos);
+    if(jornada != "Blanco"){
+      estadisticasDatos[jornada].forEach(e => {
+      const nombreCandidato = e.nombre_votante
+      nameCandidato.push(nombreCandidato)
+      const cantidadVotos = e.cantidad_votos
+      quantityVotos.push(cantidadVotos)
       });
-    } else {
-      console.log(`No hay datos para mostrar en la jornada ${jornada}.`);
+    }else{
+      const blanco = estadisticasDatos[jornada]
+      Object.keys(blanco).map((x)=>{
+        const nombreCand = x
+        nameCandidato.push(nombreCand)
+        const cantidadVot = blanco[x]
+        quantityVotos.push(cantidadVot)
+      })
     }
-
-    const numeroBotos = quantityVotos;
+    
+    const numeroVotos = quantityVotos;
     const candidatos = nameCandidato;
+
+    console.log(numeroVotos,candidatos)
 
     return {
       labels: candidatos,
       datasets: [
         {
           label: `Jornada ${jornada}`,
-          data: numeroBotos,
+          data: numeroVotos,
           tension: 0.5,
           fill: true,
-          backgroundColor: "rgba(0, 255, 0, 1)",
+          backgroundColor: "blue",
           borderColor: "black",
-          // pointRadius: 5,
         },
       ],
     };
@@ -82,7 +92,7 @@ function AdminPage() {
   const options = {
     responsive: true,
     animation: true,
-    puglins: {
+    plugins: {
       legend: {
         display: false,
       },
@@ -91,22 +101,28 @@ function AdminPage() {
       y: {
         beginAtZero: true,
         ticks: {
-          stepSize: 1, 
+          stepSize: 1,
         },
       },
       x: {
-        ticks: { color: "blue" },
+        ticks: { color: "black" },
       },
     },
   };
 
   return (
-    <div>
-      {graficosPorJornada.map((midata, index) => (
-        <div key={index} style={{ width: "600px", height: "400px" }}>
-          <Bar data={midata} options={options} />
-        </div>
-      ))}
+    <div className="container-graficas-body">
+      <div className="container-graficos">
+        {graficosPorJornada.map((midata, index) => (
+          <div key={index} className="graficos">
+            <Bar
+              data={midata}
+              options={options}
+              style={{ width: "100%", height: "100%" }}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

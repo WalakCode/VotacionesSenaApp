@@ -17,15 +17,14 @@ function VotoPageNoche() {
 
   // Agregar un candidato adicional
   const candidatoPersonalizado = {
-    id_ficha : "000000", 
+    id_ficha: "000000",
     ficha: "VOTO EN BLANCO",
     nombre: "VOTO EN BLANCO",
-    apellido: "", 
-    img_candidato: "foto user blanco.png", 
-    tarjeton : "00",
-    id_candidatos: 99999
+    apellido: "",
+    img_candidato: "foto user blanco.png",
+    tarjeton: "00",
+    id_candidatos: 99999,
   };
-
 
   // obtenemos los candidatos
   useEffect(() => {
@@ -49,26 +48,15 @@ function VotoPageNoche() {
 
       if (result.resultData) {
         if (result.resultResponse) {
-          setMensaje(<AlertVotoEXitoso />);
-          setTimeout(() => {
-            navegate("/");
-          }, 2000);
+          setMensaje(result.resultData);
         }
       } else {
         if (result.errorData) {
           if (result.errorResponse === 500) {
-            setMensaje(<AlertError />);
-            setTimeout(() => {
-              navegate("/");
-            }, 2000);
-            // navegate("/");
+            setMensaje(result.errorData);
           } else {
             if (result.errorResponse === 400) {
-              // console.log(errorResponse);
-              setMensaje(<AlertVoto />);
-              setTimeout(() => {
-                navegate("/");
-              }, 2000);
+              setMensaje(result.errorData);
             }
           }
         }
@@ -77,6 +65,9 @@ function VotoPageNoche() {
       console.log(error);
     }
   };
+  function redirect() {
+    window.location.reload();
+  }
 
   console.log(candidatos);
   const candidatosConPersonalizado = [...candidatos, candidatoPersonalizado];
@@ -94,9 +85,7 @@ function VotoPageNoche() {
           </div>
         </div>
         <div className="container-name-formacion">
-          <h3>
-            {candidato.ficha}
-          </h3>
+          <h3>{candidato.ficha}</h3>
         </div>
 
         <div className="container-img-candidato">
