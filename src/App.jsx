@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LoginPage from "../page/LoginPage";
 import { AuthProvider } from "../context/AuthContext";
+import LoginPage from "../page/LoginPage";
 import VotoPageMañana from "../page/VotoPageMañana";
 import VotoPageTarde from "../page/VotoPageTarde";
 import VotoPageNoche from "../page/VotoPageNoche";

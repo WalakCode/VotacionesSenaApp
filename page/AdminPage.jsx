@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useLocation } from "react-router-dom";
-import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
   PointElement,
-  LineElement,
+  BarElement,
   Title,
   Tooltip,
   Legend,
@@ -20,7 +20,7 @@ function AdminPage() {
     CategoryScale,
     LinearScale,
     PointElement,
-    LineElement,
+    BarElement,
     Title,
     Tooltip,
     Legend,
@@ -67,26 +67,44 @@ function AdminPage() {
       labels: candidatos,
       datasets: [
         {
-          label: `Beneficios - Jornada ${jornada}`,
+          label: `Jornada ${jornada}`,
           data: numeroBotos,
           tension: 0.5,
           fill: true,
           backgroundColor: "rgba(0, 255, 0, 1)",
           borderColor: "black",
-          pointRadius: 5,
+          // pointRadius: 5,
         },
       ],
     };
   });
 
   const options = {
+    responsive: true,
+    animation: true,
+    puglins: {
+      legend: {
+        display: false,
+      },
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          stepSize: 1, 
+        },
+      },
+      x: {
+        ticks: { color: "blue" },
+      },
+    },
   };
 
   return (
     <div>
       {graficosPorJornada.map((midata, index) => (
         <div key={index} style={{ width: "600px", height: "400px" }}>
-          <Line data={midata} options={options} />
+          <Bar data={midata} options={options} />
         </div>
       ))}
     </div>

@@ -177,7 +177,7 @@ body {
 
     .conatiner-mensaje {
       position: fixed;
-      top: 50%;
+      top: 43%;
       left: 50%;
       transform: translate(-50%, -50%);
       background-color: white;
@@ -473,6 +473,7 @@ body {
 
     .container-white {
       .container-mensaje-p {
+        background-color: red;
         height: 60px;
         display: flex;
         justify-content: center;
