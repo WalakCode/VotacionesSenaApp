@@ -46,13 +46,11 @@ function VotoPageMañana() {
   const onSubmit = async (values) => {
     try {
       const result = await votos(token, values);
+      console.log(result)
 
       if (result.resultData) {
         if (result.resultResponse) {
-          setMensaje(<AlertVotoEXitoso />);
-          setTimeout(() => {
-            navegate("/");
-          }, 2000);
+          setMensaje(result.errorData);
         }
       } else {
         if (result.errorData) {
@@ -78,7 +76,6 @@ function VotoPageMañana() {
     }
   };
 
-  console.log(candidatos);
   const candidatosConPersonalizado = [...candidatos, candidatoPersonalizado];
   const ruta = `/img-candidatos/`;
   const renderCandidatos = candidatosConPersonalizado.map((candidato) => (
@@ -127,13 +124,30 @@ function VotoPageMañana() {
   return (
     <div className="container-page-votos">
       <div className="container-text">
-        <p>Candidatos Jornada Mañana </p>
+        <p>Candidatos Jornada Tarde </p>
       </div>
 
       <div className="container-all-tarjetones">
         <div className="container-candidatos">{renderCandidatos}</div>
       </div>
-      {mensaje}
+
+      {mensaje && (
+        <div className="container-mensaje-votos">
+          <div className="conatiner-mensaje">
+            <div className="container-blue"></div>
+
+            <div className="container-white">
+              <div className="container-mensaje-p">
+                <p>{mensaje}</p>
+              </div>
+
+              <div className="container-button">
+                <button onClick={redirect}>Salir</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

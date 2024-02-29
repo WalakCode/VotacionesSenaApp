@@ -17,15 +17,14 @@ function VotoPageVirtual() {
 
   // Agregar un candidato adicional
   const candidatoPersonalizado = {
-    id_ficha : "000000", 
+    id_ficha: "000000",
     ficha: "VOTO EN BLANCO",
     nombre: "VOTO EN BLANCO",
-    apellido: "", 
-    img_candidato: "foto user blanco.png", 
-    tarjeton : "00",
-    id_candidatos: 99999
+    apellido: "",
+    img_candidato: "foto user blanco.png",
+    tarjeton: "00",
+    id_candidatos: 99999,
   };
-
 
   // obtenemos los candidatos
   useEffect(() => {
@@ -94,9 +93,7 @@ function VotoPageVirtual() {
           </div>
         </div>
         <div className="container-name-formacion">
-          <h3>
-            {candidato.ficha}
-          </h3>
+          <h3>{candidato.ficha}</h3>
         </div>
 
         <div className="container-img-candidato">
@@ -127,13 +124,30 @@ function VotoPageVirtual() {
   return (
     <div className="container-page-votos">
       <div className="container-text">
-        <p>Candidatos Jornada Virtual </p>
+        <p>Candidatos Jornada Tarde </p>
       </div>
 
       <div className="container-all-tarjetones">
         <div className="container-candidatos">{renderCandidatos}</div>
       </div>
-      {mensaje}
+
+      {mensaje && (
+        <div className="container-mensaje-votos">
+          <div className="conatiner-mensaje">
+            <div className="container-blue"></div>
+
+            <div className="container-white">
+              <div className="container-mensaje-p">
+                <p>{mensaje}</p>
+              </div>
+
+              <div className="container-button">
+                <button onClick={redirect}>Salir</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -127,13 +127,30 @@ function VotoPageNoche() {
   return (
     <div className="container-page-votos">
       <div className="container-text">
-        <p>Candidatos Jornada Noche </p>
+        <p>Candidatos Jornada Tarde </p>
       </div>
 
       <div className="container-all-tarjetones">
         <div className="container-candidatos">{renderCandidatos}</div>
       </div>
-      {mensaje}
+
+      {mensaje && (
+        <div className="container-mensaje-votos">
+          <div className="conatiner-mensaje">
+            <div className="container-blue"></div>
+
+            <div className="container-white">
+              <div className="container-mensaje-p">
+                <p>{mensaje}</p>
+              </div>
+
+              <div className="container-button">
+                <button onClick={redirect}>Salir</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

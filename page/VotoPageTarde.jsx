@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { AlertError, AlertVoto, AlertVotoEXitoso } from "../context/AletError";
 import simboloSena from "../public/img/Logosimbolo-SENA-PRINCIPAL.png";
 
@@ -17,15 +17,14 @@ function VotoPageTarde() {
 
   // Agregar un candidato adicional
   const candidatoPersonalizado = {
-    id_ficha : "000000", 
+    id_ficha: "000000",
     ficha: "VOTO EN BLANCO",
     nombre: "VOTO EN BLANCO",
-    apellido: "", 
-    img_candidato: "foto user blanco.png", 
-    tarjeton : "00",
-    id_candidatos: 99999
+    apellido: "",
+    img_candidato: "foto user blanco.png",
+    tarjeton: "00",
+    id_candidatos: 99999,
   };
-
 
   // obtenemos los candidatos
   useEffect(() => {
@@ -49,26 +48,15 @@ function VotoPageTarde() {
 
       if (result.resultData) {
         if (result.resultResponse) {
-          setMensaje(<AlertVotoEXitoso />);
-          setTimeout(() => {
-            navegate("/");
-          }, 2000);
+          setMensaje(result.resultData);
         }
       } else {
         if (result.errorData) {
           if (result.errorResponse === 500) {
-            setMensaje(<AlertError />);
-            setTimeout(() => {
-              navegate("/");
-            }, 2000);
-            // navegate("/");
+            setMensaje(result.errorData);
           } else {
             if (result.errorResponse === 400) {
-              // console.log(errorResponse);
-              setMensaje(<AlertVoto />);
-              setTimeout(() => {
-                navegate("/");
-              }, 2000);
+              setMensaje(result.errorData);
             }
           }
         }
@@ -78,7 +66,9 @@ function VotoPageTarde() {
     }
   };
 
-  console.log(candidatos);
+  function redirect() {
+    window.location.reload();
+  }
   const candidatosConPersonalizado = [...candidatos, candidatoPersonalizado];
   const ruta = `/img-candidatos/`;
   const renderCandidatos = candidatosConPersonalizado.map((candidato) => (
@@ -94,9 +84,7 @@ function VotoPageTarde() {
           </div>
         </div>
         <div className="container-name-formacion">
-          <h3>
-            {candidato.ficha}
-          </h3>
+          <h3>{candidato.ficha}</h3>
         </div>
 
         <div className="container-img-candidato">
@@ -133,7 +121,24 @@ function VotoPageTarde() {
       <div className="container-all-tarjetones">
         <div className="container-candidatos">{renderCandidatos}</div>
       </div>
-      {mensaje}
+
+      {mensaje && (
+        <div className="container-mensaje-votos">
+          <div className="conatiner-mensaje">
+            <div className="container-blue"></div>
+
+            <div className="container-white">
+              <div className="container-mensaje-p">
+                <p>{mensaje}</p>
+              </div>
+
+              <div className="container-button">
+                <button onClick={redirect}>Salir</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

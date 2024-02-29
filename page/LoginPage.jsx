@@ -9,7 +9,6 @@ import imgEstudiantes from "/img/img-body-login.jpg";
 import logoSENA from "/img/logo-sena.png";
 import logotipoSENA from "/img/Logosimbolo-SENA-PRINCIPAL.png";
 import lineaSVG from "/sgv/lineas.svg";
-import "../public/style/style.css";
 
 function LoginPage() {
   const { register, handleSubmit } = useForm();
@@ -28,17 +27,16 @@ function LoginPage() {
           if (tokenDatos.rol === "user") {
             const jornada = tokenDatos.jornadaID;
 
-            if(jornada === 1){
-              console.log("jornada de la mañana")
+            if (jornada === 1) {
               navegate("/VotarMañana", { state: { token } });
             }
-            if(jornada === 2){
+            if (jornada === 2) {
               navegate("/VotarTarde", { state: { token } });
             }
-            if(jornada === 3){
+            if (jornada === 3) {
               navegate("/VotarNoche", { state: { token } });
             }
-            if(jornada === 4){
+            if (jornada === 4) {
               navegate("/VotarVirtual", { state: { token } });
             }
           }
@@ -119,7 +117,6 @@ function LoginPage() {
           </div>
 
           <img src={logoSENA} alt="Imagen nombre SENA" className="logo-sena" />
-         
         </div>
 
         {/* container text rigth */}
@@ -127,7 +124,9 @@ function LoginPage() {
           <div className="container-info">
             <img src={lineaSVG} alt="SVG de líneas" />
             <div className="container-text">
-              <p className="bienvenidad">¡Bienvenido al dia de votaciones en el CPYA!</p>
+              <p className="bienvenidad">
+                ¡Bienvenido al dia de votaciones en el CPYA!
+              </p>
 
               <p className="text-1">
                 Aqui podras votar por el Aprendiz que representara tu jornada.
@@ -152,10 +151,12 @@ function LoginPage() {
             </div>
 
             <div className="container-white">
-              <p>
-                Revisa tus credenciales e intenta de <br /> nuevo o recarga la
-                pagina
-              </p>
+              <div className="container-mensaje-p">
+                <p>
+                  Revisa tus credenciales e intenta de <br /> nuevo o recarga la
+                  pagina
+                </p>
+              </div>
 
               <div className="container-button">
                 <button>
