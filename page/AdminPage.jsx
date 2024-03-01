@@ -45,44 +45,43 @@ function AdminPage() {
     obtenerEstadisticas();
   }, [estadisticas, token]);
 
-  console.log(estadisticasDatos)
+  console.log(estadisticasDatos);
 
   const graficosPorJornada = Object.keys(estadisticasDatos).map((jornada) => {
-
     const nameCandidato = [];
     const quantityVotos = [];
 
-    if(jornada != "Blanco"){
-      estadisticasDatos[jornada].forEach(e => {
-      const nombreCandidato = e.nombre_votante
-      nameCandidato.push(nombreCandidato)
-      const cantidadVotos = e.cantidad_votos
-      quantityVotos.push(cantidadVotos)
+    console.log("jronada", jornada)
+    if (jornada != "Blanco") {
+      estadisticasDatos[jornada].forEach((e) => {
+        const nombreCandidato = e.nombre_votante;
+        nameCandidato.push(nombreCandidato);
+        const cantidadVotos = e.cantidad_votos;
+        quantityVotos.push(cantidadVotos);
       });
-    }else{
-      const blanco = estadisticasDatos[jornada]
-      Object.keys(blanco).map((x)=>{
-        const nombreCand = x
-        nameCandidato.push(nombreCand)
-        const cantidadVot = blanco[x]
-        quantityVotos.push(cantidadVot)
-      })
+    } else {
+      const blanco = estadisticasDatos[jornada];
+      Object.keys(blanco).map((x) => {
+        const nombreCand = x;
+        nameCandidato.push(nombreCand);
+        const cantidadVot = blanco[x];
+        quantityVotos.push(cantidadVot);
+      });
     }
-    
+
     const numeroVotos = quantityVotos;
     const candidatos = nameCandidato;
 
-    console.log(numeroVotos,candidatos)
+    console.log(numeroVotos, candidatos);
 
     return {
       labels: candidatos,
       datasets: [
         {
-          label: `Jornada ${jornada}`,
+          label: `Votos de la ${jornada}`,
           data: numeroVotos,
-          tension: 0.5,
           fill: true,
-          backgroundColor: "blue",
+          backgroundColor: "#00324d",
           borderColor: "black",
         },
       ],
@@ -94,7 +93,7 @@ function AdminPage() {
     animation: true,
     plugins: {
       legend: {
-        display: false,
+        display: true,
       },
     },
     scales: {
@@ -111,17 +110,22 @@ function AdminPage() {
   };
 
   return (
-    <div className="container-graficas-body">
-      <div className="container-graficos">
-        {graficosPorJornada.map((midata, index) => (
-          <div key={index} className="graficos">
-            <Bar
-              data={midata}
-              options={options}
-              style={{ width: "100%", height: "100%" }}
-            />
-          </div>
-        ))}
+    <div className="title-estadisticas">
+      <div className="container-text">
+        <h1>Resultados de las Votaciones</h1>
+      </div>
+      <div className="container-graficas-body">
+        <div className="container-graficos">
+          {graficosPorJornada.map((midata, index) => (
+            <div key={index} className="graficos">
+              <Bar
+                data={midata}
+                options={options}
+                style={{ width: "100%", height: "100%" }}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

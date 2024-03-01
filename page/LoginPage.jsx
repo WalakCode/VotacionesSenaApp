@@ -62,6 +62,9 @@ function LoginPage() {
       console.log(error);
     }
   });
+  function redirect() {
+    window.location.reload();
+  }
 
   return (
     <div className="container-login-body">
@@ -159,11 +162,7 @@ function LoginPage() {
               </div>
 
               <div className="container-button">
-                <button>
-                  <Link to="/admin" className="regresar-link">
-                    Regresa
-                  </Link>
-                </button>
+                <button onClick={redirect}>Regresar</button>
               </div>
             </div>
           </div>

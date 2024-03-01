@@ -78,24 +78,47 @@ body {
 .container-login-body .container-login .container-form .container-input input::placeholder {
   color: #00324d;
 }
-.container-login-body .container-login .container-form .button-ingresa {
+.container-login-body .container-login .container-form button {
+  font-family: "Work Sans", sans-serif;
   margin-top: 2%;
   background-color: #00324d;
   border-radius: 5px;
   border: transparent;
-  color: white;
-  font-family: "Work Sans", sans-serif;
   font-size: 18px;
   width: 160px;
   height: 35px;
+  border: transparent;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: inline-block;
+  color: white;
 }
-.container-login-body .container-login .container-form .button-ingresa:hover {
-  transform: scale(1.1);
-  transition: 0.4s;
+.container-login-body .container-login .container-form button:hover {
+  color: #00324d;
+  border: 1px solid #00324d;
 }
-.container-login-body .container-login .container-form .button-ingresa:not(hover) {
-  transform: scale(1);
-  transition: 0.4s;
+.container-login-body .container-login .container-form button::after {
+  content: "";
+  background: white;
+  position: absolute;
+  z-index: -1;
+  padding: 16px 20px;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  right: 100%;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+.container-login-body .container-login .container-form button:hover::after {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
 }
 .container-login-body .container-login .container-img-estudiantes {
   margin: 0 auto;
@@ -119,7 +142,7 @@ body {
   display: flex;
   flex-direction: column;
 }
-@media (max-width: 1300px) {
+@media (max-width: 1320px) {
   .container-login-body .container-login .container-fondo-info {
     display: none;
   }
@@ -130,7 +153,6 @@ body {
   display: flex;
   justify-content: end;
   position: relative;
-  padding-right: 10%;
 }
 .container-login-body .container-login .container-fondo-info .container-info img {
   height: 100%;
@@ -139,22 +161,23 @@ body {
 }
 .container-login-body .container-login .container-fondo-info .container-info .container-text {
   color: white;
-  max-width: 50%;
   width: 60%;
-  height: 70vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 .container-login-body .container-login .container-fondo-info .container-info .container-text .bienvenidad {
-  font-size: 6vh;
+  font-size: 5vh;
   font-weight: bold;
 }
 .container-login-body .container-login .container-fondo-info .container-info .container-text .text-1 {
   text-align: justify;
   font-size: 3vh;
+  margin: 0px;
 }
 .container-login-body .container-login .container-fondo-info .container-info .container-text .text-2 {
+  margin: 0px;
   text-align: justify;
   font-size: 3vh;
 }
@@ -176,7 +199,7 @@ body {
   background-color: white;
   width: 400px;
   max-width: 80%;
-  height: 25%;
+  height: 25.5%;
   border-radius: 10px;
 }
 .container-login-body .container-mensaje-overlay .conatiner-mensaje p {
@@ -184,12 +207,12 @@ body {
   margin: 0px;
 }
 .container-login-body .container-mensaje-overlay .conatiner-mensaje .container-white .container-mensaje-p {
-  height: 91px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .container-login-body .container-mensaje-overlay .conatiner-mensaje .container-white .container-mensaje-p p {
+  margin: 5%;
   font-family: "Work Sans", sans-serif;
   font-size: 2.2vh;
 }
@@ -206,7 +229,7 @@ body {
 }
 .container-login-body .container-mensaje-overlay .conatiner-mensaje .container-button {
   background-color: rgba(0, 50, 77, 0.24);
-  height: 45px;
+  height: 6vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -217,9 +240,9 @@ body {
   background-color: #39a900;
   border-radius: 5px;
   border: transparent;
-  font-size: 18px;
-  width: 160px;
-  height: 35px;
+  font-size: 2.3vh;
+  width: 45%;
+  height: 75%;
   background: #39a900;
   border: transparent;
   border-radius: 3px;
@@ -227,20 +250,14 @@ body {
   z-index: 1;
   overflow: hidden;
   display: inline-block;
-}
-.container-login-body .container-mensaje-overlay .conatiner-mensaje .container-button button .regresar-link {
   color: white;
-  padding: 6px;
-  padding-right: 40px;
-  padding-left: 40px;
-  text-decoration: none;
 }
-.container-login-body .container-mensaje-overlay .conatiner-mensaje .container-button button:hover .regresar-link {
-  color: #20c20e; /* color de fuente hover */
+.container-login-body .container-mensaje-overlay .conatiner-mensaje .container-button button:hover {
+  color: #20c20e;
 }
 .container-login-body .container-mensaje-overlay .conatiner-mensaje .container-button button::after {
   content: "";
-  background: white; /* color de fondo hover */
+  background: white;
   position: absolute;
   z-index: -1;
   padding: 16px 20px;
@@ -504,6 +521,21 @@ body {
   bottom: 0;
   -webkit-transition: all 0.35s;
   transition: all 0.35s;
+}
+
+.title-estadisticas {
+  text-align: center;
+}
+.title-estadisticas .container-text {
+  background-color: #00324d;
+  height: 8vh;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.title-estadisticas .container-text h1 {
+  color: white;
+  margin: 0px;
 }
 
 .container-graficas-body {
