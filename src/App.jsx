@@ -7,13 +7,14 @@ import VotoPageNoche from "../page/VotoPageNoche";
 import VotoPageVirtual from "../page/VotoPageNoche";
 import ProtectedRouters from "../context/ProtectedRouters";
 import AdminPage from "../page/AdminPage";
+import ErrorPage from "../page/ErrorPage";
 
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="*" element={<p>Ruta no encontrada</p>} />
+          <Route path="*" element={<ErrorPage />} />
           <Route path="/" element={<LoginPage />} />
 
           <Route element={<ProtectedRouters />}>
