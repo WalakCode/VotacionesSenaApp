@@ -28,17 +28,22 @@ function AdminPage() {
   );
   const { estadisticas } = useAuth();
   const [estadisticasDatos, setEstadisticas] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const { state } = useLocation();
   const token = state.token;
 
   useEffect(() => {
     const obtenerEstadisticas = async () => {
+      setIsLoading(true);
+
       try {
         const result = await estadisticas(token);
         setEstadisticas(result.Data);
       } catch (error) {
         console.error(error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -47,12 +52,25 @@ function AdminPage() {
 
   console.log(estadisticasDatos);
 
+  const handleReloadData = async () => {
+    setIsLoading(true);
+
+    try {
+      const result = await estadisticas(token);
+      setEstadisticas(result.Data);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const graficosPorJornada = Object.keys(estadisticasDatos).map((jornada) => {
     const nameCandidato = [];
     const quantityVotos = [];
 
-    console.log("jronada", jornada)
-    if (jornada != "Blanco") {
+    console.log("jornada", jornada);
+    if (jornada !== "Blanco") {
       estadisticasDatos[jornada].forEach((e) => {
         const nombreCandidato = e.nombre_votante;
         nameCandidato.push(nombreCandidato);
@@ -61,7 +79,7 @@ function AdminPage() {
       });
     } else {
       const blanco = estadisticasDatos[jornada];
-      Object.keys(blanco).map((x) => {
+      Object.keys(blanco).forEach((x) => {
         const nombreCand = x;
         nameCandidato.push(nombreCand);
         const cantidadVot = blanco[x];
@@ -110,23 +128,28 @@ function AdminPage() {
   };
 
   return (
-    <div className="title-estadisticas">
-      <div className="container-text">
-        <h1>Resultados de las Votaciones</h1>
-      </div>
-      <div className="container-graficas-body">
-        <div className="container-graficos">
-          {graficosPorJornada.map((midata, index) => (
-            <div key={index} className="graficos">
-              <Bar
-                data={midata}
-                options={options}
-                style={{ width: "100%", height: "100%" }}
-              />
-            </div>
-          ))}
+    <div>
+      <div className="title-estadisticas">
+        <div className="container-text">
+          <h1>Resultados de las Votaciones</h1>
+        </div>
+        <div className="container-graficas-body">
+          <div className="container-graficos">
+            {graficosPorJornada.map((midata, index) => (
+              <div key={index} className="graficos">
+                <Bar
+                  data={midata}
+                  options={options}
+                  style={{ width: "100%", height: "100%" }}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
+      <button className="button-admin" onClick={handleReloadData} disabled={isLoading}>
+        {isLoading ? "Cargando..." : "Recargar Datos"}
+      </button>
     </div>
   );
 }

@@ -113,7 +113,7 @@ function VotoPageVirtual() {
   return (
     <div className="container-page-votos">
       <div className="container-text">
-        <p>Candidatos Jornada Virtual </p>
+        <p>Candidatos Modalidad Virtual </p>
       </div>
 
       <div className="container-all-tarjetones">
@@ -123,8 +123,13 @@ function VotoPageVirtual() {
       {mensaje && (
         <div className="container-mensaje-votos">
           <div className="conatiner-mensaje">
-            <div className="container-blue"></div>
-
+            <div
+              className={
+                result.errorResponse === 500 || result.errorResponse === 400
+                  ? "container-blue-error"
+                  : "container-blue"
+              }
+            ></div>
             <div className="container-white">
               <div className="container-mensaje-p">
                 <p>{mensaje}</p>
