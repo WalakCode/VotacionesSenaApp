@@ -37,7 +37,6 @@ body {
 
       .container-imgSena {
         width: 100%;
-        // background-color: red;
         display: flex;
         text-align: center;
         justify-content: center;
@@ -151,12 +150,32 @@ body {
         height: 100%;
         font-family: "Work Sans", sans-serif;
         display: flex;
+        
 
         img {
           height: 100%;
+          position: relative;
         }
         .container-text {
+          margin-right: 20px;
+          margin-left: 25%;
           color: white;
+          position: absolute;
+          
+          
+          @media (max-width: 1628px) {
+            margin-left: 30%;
+          }
+          .bienvenidad{
+            font-size: 3.5vw;
+            font-weight: bold;
+          }
+          .text-1{
+            font-size: 30px;
+          }
+          .text-2{
+            font-size: 30px;
+          }
         }
       }
     }
@@ -202,6 +221,9 @@ body {
             @media (max-width: 515px) {
               font-size: 5vw;
             }
+            @media (max-width: 10000px) {
+              font-size: 2.2vh;
+            }
           }
         }
       }
@@ -221,6 +243,9 @@ body {
           margin: 0px;
           font-size: 1.5vw;
 
+            @media (max-width: 10000px) {
+              font-size: 2.2vh;
+            }
           @media (max-width: 515px) {
             font-size: 5vw;
           }
@@ -255,6 +280,9 @@ body {
 
           @media (max-width: 515px) {
             font-size: 4.5vw;
+          }
+          @media (max-width: 10000px) {
+            font-size: 2vh;
           }
         }
 
@@ -494,6 +522,9 @@ body {
           @media (max-width: 768px) {
             font-size: 2.5vh;
           }
+          @media (max-width: 10000px) {
+            font-size: 2.5vh;
+          }
 
           @media (max-width: 515px) {
             font-size: 4vw;
@@ -545,6 +576,9 @@ body {
 
         @media (max-width: 768px) {
           font-size: 2vh;
+        }
+        @media (max-width: 10000px) {
+          font-size: 2.3vh;
         }
 
         @media (max-width: 515px) {

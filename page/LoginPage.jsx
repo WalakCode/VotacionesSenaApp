@@ -128,19 +128,19 @@ function LoginPage() {
         <div className="container-fondo-info">
           <div className="container-info">
             <img src={lineaSVG} alt="SVG de líneas" />
-            <div className="container-t ext">
+            <div className="container-text">
               <p className="bienvenidad">
                 ¡Bienvenido al dia de votaciones en el CPYA!
               </p>
 
               <p className="text-1">
-                Aqui podras votar por el Aprendiz que representara tu jornada.
+                Aqui podras votar por el Aprendiz que representara <br /> tu jornada.
               </p>
               <p className="text-2">
-                Recuerda cada voto cuenta y es una oportunidad para elegir a
-                alguien <br /> comprometido y dispuesto a trabajar en beneficio
-                de todos. Se trata <br /> de construir juntos un entorno
-                educativo que refleje nuestras <br /> necesidades y
+                Recuerda cada voto cuenta y es una oportunidad para <br /> elegir a
+                alguien  comprometido y dispuesto a trabajar en <br /> beneficio
+                de todos. Se trata  de construir juntos un entorno
+                educativo que refleje nuestras  necesidades y
                 aspiraciones.
               </p>
             </div>
