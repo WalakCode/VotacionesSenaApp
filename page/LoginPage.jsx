@@ -128,7 +128,7 @@ function LoginPage() {
         <div className="container-fondo-info">
           <div className="container-info">
             <img src={lineaSVG} alt="SVG de líneas" />
-            <div className="container-text">
+            <div className="container-t ext">
               <p className="bienvenidad">
                 ¡Bienvenido al dia de votaciones en el CPYA!
               </p>

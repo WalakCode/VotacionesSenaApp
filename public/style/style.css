@@ -141,8 +141,6 @@ body {
   background-color: #39a900;
   width: 73%;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 @media (max-width: 1320px) {
   .container-login-body .container-login .container-fondo-info {
@@ -153,35 +151,12 @@ body {
   height: 100%;
   font-family: "Work Sans", sans-serif;
   display: flex;
-  justify-content: end;
-  position: relative;
 }
 .container-login-body .container-login .container-fondo-info .container-info img {
   height: 100%;
-  position: absolute;
-  left: 0;
 }
 .container-login-body .container-login .container-fondo-info .container-info .container-text {
   color: white;
-  width: 60%;
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-.container-login-body .container-login .container-fondo-info .container-info .container-text .bienvenidad {
-  font-size: 5vh;
-  font-weight: bold;
-}
-.container-login-body .container-login .container-fondo-info .container-info .container-text .text-1 {
-  text-align: justify;
-  font-size: 3vh;
-  margin: 0px;
-}
-.container-login-body .container-login .container-fondo-info .container-info .container-text .text-2 {
-  margin: 0px;
-  text-align: justify;
-  font-size: 3vh;
 }
 .container-login-body .container-mensaje-overlay {
   text-align: center;

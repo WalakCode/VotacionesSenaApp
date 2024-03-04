@@ -4,7 +4,7 @@ import LoginPage from "../page/LoginPage";
 import VotoPageMañana from "../page/VotoPageMañana";
 import VotoPageTarde from "../page/VotoPageTarde";
 import VotoPageNoche from "../page/VotoPageNoche";
-import VotoPageVirtual from "../page/VotoPageNoche";
+import VotoPageVirtual from "../page/VotoPageVirtual";
 import ProtectedRouters from "../context/ProtectedRouters";
 import AdminPage from "../page/AdminPage";
 import ErrorPage from "../page/ErrorPage";

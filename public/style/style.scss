@@ -142,8 +142,6 @@ body {
       background-color: #39a900;
       width: 73%;
       height: 100vh;
-      display: flex;
-      flex-direction: column;
 
       @media (max-width: 1320px) {
         display: none;
@@ -153,39 +151,12 @@ body {
         height: 100%;
         font-family: "Work Sans", sans-serif;
         display: flex;
-        justify-content: end;
-        position: relative;
 
         img {
           height: 100%;
-          position: absolute;
-          left: 0;
         }
-
         .container-text {
           color: white;
-
-          width: 60%;
-          height: 80vh;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-around;
-
-          .bienvenidad {
-            font-size: 5vh;
-            font-weight: bold;
-          }
-
-          .text-1 {
-            text-align: justify;
-            font-size: 3vh;
-            margin: 0px;
-          }
-          .text-2 {
-            margin: 0px;
-            text-align: justify;
-            font-size: 3vh;
-          }
         }
       }
     }
@@ -504,7 +475,7 @@ body {
     transform: translate(-50%, -50%);
     background-color: white;
     width: 80%;
-    max-width: 350px; 
+    max-width: 350px;
     height: auto;
     border-radius: 10px;
 
