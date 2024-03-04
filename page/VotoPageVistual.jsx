@@ -113,7 +113,7 @@ function VotoPageVirtual() {
   return (
     <div className="container-page-votos">
       <div className="container-text">
-        <p>Candidatos Jornada Tarde </p>
+        <p>Candidatos Jornada Virtual </p>
       </div>
 
       <div className="container-all-tarjetones">
