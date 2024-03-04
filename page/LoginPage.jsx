@@ -88,6 +88,7 @@ function LoginPage() {
               <input
                 type="text"
                 placeholder="cedula"
+                autoComplete="off"
                 {...register("cedula", { required: true })}
               />
             </div>
@@ -101,6 +102,7 @@ function LoginPage() {
               <input
                 type="text"
                 placeholder="ficha"
+                autoComplete="off"
                 {...register("ficha", { required: true })}
               />
             </div>

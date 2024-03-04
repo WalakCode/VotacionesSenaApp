@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import { AlertError, AlertVoto, AlertVotoEXitoso } from "../context/AletError";
 import simboloSena from "../public/img/Logosimbolo-SENA-PRINCIPAL.png";
 
 function VotoPageNoche() {
@@ -13,7 +11,6 @@ function VotoPageNoche() {
   const token = state.token;
   const [candidatos, setCandidatos] = useState([]);
   const [mensaje, setMensaje] = useState();
-  const navegate = useNavigate();
 
   // Agregar un candidato adicional
   const candidatoPersonalizado = {
