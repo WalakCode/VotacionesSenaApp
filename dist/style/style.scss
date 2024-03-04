@@ -150,7 +150,6 @@ body {
         height: 100%;
         font-family: "Work Sans", sans-serif;
         display: flex;
-        
 
         img {
           height: 100%;
@@ -161,19 +160,18 @@ body {
           margin-left: 25%;
           color: white;
           position: absolute;
-          
-          
+
           @media (max-width: 1628px) {
             margin-left: 30%;
           }
-          .bienvenidad{
+          .bienvenidad {
             font-size: 3.5vw;
             font-weight: bold;
           }
-          .text-1{
+          .text-1 {
             font-size: 30px;
           }
-          .text-2{
+          .text-2 {
             font-size: 30px;
           }
         }
@@ -243,9 +241,9 @@ body {
           margin: 0px;
           font-size: 1.5vw;
 
-            @media (max-width: 10000px) {
-              font-size: 2.2vh;
-            }
+          @media (max-width: 10000px) {
+            font-size: 2.2vh;
+          }
           @media (max-width: 515px) {
             font-size: 5vw;
           }
@@ -620,6 +618,7 @@ body {
 // pagina administrador
 .title-estadisticas {
   text-align: center;
+  position: relative;
   .container-text {
     background-color: #00324d;
     height: 10vh;
@@ -632,6 +631,54 @@ body {
     }
   }
 }
+
+.button-admin {
+  position: absolute;
+  top: 90%;
+  left: 90%;
+  z-index: 999;
+  font-family: "Work Sans", sans-serif;
+  margin-top: 2%;
+  background-color: #00324d;
+  border-radius: 5px;
+  border: transparent;
+  font-size: 18px;
+  width: 160px;
+  height: 35px;
+  border: transparent;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: inline-block;
+  color: white;
+}
+.button-admin:hover {
+  color: #00324d;
+  border: 1px solid #00324d;
+}
+.button-admin::after {
+  content: "";
+  background: white;
+  position: absolute;
+  z-index: -1;
+  padding: 16px 20px;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  right: 100%;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+.button-admin:hover::after {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
 .container-graficas-body {
   height: 100vh;
   width: auto;
