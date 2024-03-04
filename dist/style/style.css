@@ -154,9 +154,28 @@ body {
 }
 .container-login-body .container-login .container-fondo-info .container-info img {
   height: 100%;
+  position: relative;
 }
 .container-login-body .container-login .container-fondo-info .container-info .container-text {
+  margin-right: 20px;
+  margin-left: 25%;
   color: white;
+  position: absolute;
+}
+@media (max-width: 1628px) {
+  .container-login-body .container-login .container-fondo-info .container-info .container-text {
+    margin-left: 30%;
+  }
+}
+.container-login-body .container-login .container-fondo-info .container-info .container-text .bienvenidad {
+  font-size: 3.5vw;
+  font-weight: bold;
+}
+.container-login-body .container-login .container-fondo-info .container-info .container-text .text-1 {
+  font-size: 30px;
+}
+.container-login-body .container-login .container-fondo-info .container-info .container-text .text-2 {
+  font-size: 30px;
 }
 .container-login-body .container-mensaje-overlay {
   text-align: center;
@@ -200,6 +219,11 @@ body {
     font-size: 5vw;
   }
 }
+@media (max-width: 10000px) {
+  .container-login-body .container-mensaje-overlay .conatiner-mensaje .container-white .container-mensaje-p p {
+    font-size: 2.2vh;
+  }
+}
 .container-login-body .container-mensaje-overlay .conatiner-mensaje .container-blue {
   border-top-left-radius: 9px;
   border-top-right-radius: 9px;
@@ -214,6 +238,11 @@ body {
   font-family: "Work Sans", sans-serif;
   margin: 0px;
   font-size: 1.5vw;
+}
+@media (max-width: 10000px) {
+  .container-login-body .container-mensaje-overlay .conatiner-mensaje .container-blue p {
+    font-size: 2.2vh;
+  }
 }
 @media (max-width: 515px) {
   .container-login-body .container-mensaje-overlay .conatiner-mensaje .container-blue p {
@@ -249,6 +278,11 @@ body {
 @media (max-width: 515px) {
   .container-login-body .container-mensaje-overlay .conatiner-mensaje .container-button button {
     font-size: 4.5vw;
+  }
+}
+@media (max-width: 10000px) {
+  .container-login-body .container-mensaje-overlay .conatiner-mensaje .container-button button {
+    font-size: 2vh;
   }
 }
 .container-login-body .container-mensaje-overlay .conatiner-mensaje .container-button button:hover {
@@ -462,6 +496,11 @@ body {
     font-size: 2.5vh;
   }
 }
+@media (max-width: 10000px) {
+  .container-mensaje-votos .conatiner-mensaje .container-white .container-mensaje-p p {
+    font-size: 2.5vh;
+  }
+}
 @media (max-width: 515px) {
   .container-mensaje-votos .conatiner-mensaje .container-white .container-mensaje-p p {
     font-size: 4vw;
@@ -512,6 +551,11 @@ body {
 @media (max-width: 768px) {
   .container-mensaje-votos .conatiner-mensaje .container-button button {
     font-size: 2vh;
+  }
+}
+@media (max-width: 10000px) {
+  .container-mensaje-votos .conatiner-mensaje .container-button button {
+    font-size: 2.3vh;
   }
 }
 @media (max-width: 515px) {
