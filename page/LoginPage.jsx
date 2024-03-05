@@ -137,8 +137,8 @@ function LoginPage() {
                 Aqui podras votar por el Aprendiz que representara <br /> tu jornada.
               </p>
               <p className="text-2">
-                Recuerda cada voto cuenta y es una oportunidad para <br /> elegir a
-                alguien  comprometido y dispuesto a trabajar en <br /> beneficio
+                Recuerda cada voto cuenta y es una oportunidad para elegir a
+                alguien  comprometido y dispuesto a trabajar en  beneficio
                 de todos. Se trata  de construir juntos un entorno
                 educativo que refleje nuestras  necesidades y
                 aspiraciones.

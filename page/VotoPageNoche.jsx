@@ -3,6 +3,11 @@ import { useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useForm } from "react-hook-form";
 import simboloSena from "../public/img/Logosimbolo-SENA-PRINCIPAL.png";
+import {
+  MensajeError404,
+  MensajeError500,
+  MensajeVoto202,
+} from "../context/MensajeError";
 
 function VotoPageNoche() {
   const { register, handleSubmit } = useForm();
@@ -45,15 +50,15 @@ function VotoPageNoche() {
 
       if (result.resultData) {
         if (result.resultResponse) {
-          setMensaje(result.resultData);
+          setMensaje(<MensajeVoto202 />);
         }
       } else {
         if (result.errorData) {
           if (result.errorResponse === 500) {
-            setMensaje(result.errorData);
+            setMensaje(<MensajeError500 />);
           } else {
             if (result.errorResponse === 400) {
-              setMensaje(result.errorData);
+              setMensaje(<MensajeError404 />);
             }
           }
         }
@@ -62,9 +67,7 @@ function VotoPageNoche() {
       console.log(error);
     }
   };
-  function redirect() {
-    window.location.reload();
-  }
+ 
 
   console.log(candidatos);
   const candidatosConPersonalizado = [...candidatos, candidatoPersonalizado];
@@ -120,23 +123,7 @@ function VotoPageNoche() {
         <div className="container-candidatos">{renderCandidatos}</div>
       </div>
 
-      {mensaje && (
-        <div className="container-mensaje-votos">
-          <div className="conatiner-mensaje">
-            <div className="container-blue"></div>
-
-            <div className="container-white">
-              <div className="container-mensaje-p">
-                <p>{mensaje}</p>
-              </div>
-
-              <div className="container-button">
-                <button onClick={redirect}>Salir</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      {mensaje}
     </div>
   );
 }
