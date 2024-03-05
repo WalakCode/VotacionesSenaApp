@@ -58,6 +58,7 @@ function VotoPageTarde() {
             setMensaje(<MensajeError500 />);
           } else {
             if (result.errorResponse === 400) {
+              console.log(result.errorResponse)
               setMensaje(<MensajeError404 />);
             }
           }
