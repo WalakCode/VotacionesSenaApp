@@ -90,13 +90,12 @@ function AdminPage() {
     const numeroVotos = quantityVotos;
     const candidatos = nameCandidato;
 
-    console.log(numeroVotos, candidatos);
 
     return {
       labels: candidatos,
       datasets: [
         {
-          label: `Votos de la ${jornada}`,
+          label: `Votos ${jornada}`,
           data: numeroVotos,
           fill: true,
           backgroundColor: "#00324d",
@@ -127,19 +126,11 @@ function AdminPage() {
     },
   };
 
-  function redirect() {
-    window.location.reload();
-  }
   return (
     <div>
       <div className="title-estadisticas">
         <div className="container-text">
-          <h1>Resultados de las Votaciones</h1>{" "}
-          <div className="container-boton">
-            <button className="boton-salir" onClick={redirect}>
-              Cerrar Sesion
-            </button>
-          </div>
+          <h1>Resultados de las Votaciones</h1>
         </div>
         <div className="container-graficas-body">
           <div className="container-graficos">
@@ -155,11 +146,7 @@ function AdminPage() {
           </div>
         </div>
       </div>
-      <button
-        className="button-admin"
-        onClick={handleReloadData}
-        disabled={isLoading}
-      >
+      <button className="button-admin" onClick={handleReloadData} disabled={isLoading}>
         {isLoading ? "Cargando..." : "Recargar Datos"}
       </button>
     </div>

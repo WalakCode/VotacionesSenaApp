@@ -621,7 +621,7 @@ body {
 }
 .container-mensaje-votos-error .conatiner-mensaje {
   position: fixed;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
@@ -659,7 +659,7 @@ body {
 .container-mensaje-votos-error .conatiner-mensaje .container-blue {
   border-top-left-radius: 10px;
   border-top-right-radius: 9px;
-  background-color: #f63838;
+  background-color: #20c20e;
   height: 50px;
   display: flex;
   align-items: center;

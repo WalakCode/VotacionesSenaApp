@@ -9,12 +9,14 @@ import imgEstudiantes from "/img/img-body-login.jpg";
 import logoSENA from "/img/logo-sena.png";
 import logotipoSENA from "/img/Logosimbolo-SENA-PRINCIPAL.png";
 import lineaSVG from "/sgv/lineas.svg";
+import { MensajeError405 } from "../context/MensajeError";
 
 function LoginPage() {
   const { register, handleSubmit } = useForm();
   const navegate = useNavigate();
   const { singIn } = useAuth();
   const [mensaje, setMensaje] = useState(null);
+  const [mensaje2, setMensaje2] = useState(null);
 
   const onSubmit = handleSubmit(async (values) => {
     try {
@@ -47,8 +49,13 @@ function LoginPage() {
         }
       }
       if (result.errorData) {
+        console.log(result.errorResponse);
         if (result.errorResponse === 500) {
           setMensaje(result.errorData);
+          navegate("/");
+        }
+        if (result.errorResponse === 405) {
+          setMensaje2(<MensajeError405 />);
           navegate("/");
         }
         if (result.errorResponse === 400) {
@@ -134,14 +141,14 @@ function LoginPage() {
               </p>
 
               <p className="text-1">
-                Aqui podras votar por el Aprendiz que representara <br /> tu jornada.
+                Aqui podras votar por el Aprendiz que representara <br /> tu
+                jornada.
               </p>
               <p className="text-2">
                 Recuerda cada voto cuenta y es una oportunidad para elegir a
-                alguien  comprometido y dispuesto a trabajar en  beneficio
-                de todos. Se trata  de construir juntos un entorno
-                educativo que refleje nuestras  necesidades y
-                aspiraciones.
+                alguien comprometido y dispuesto a trabajar en beneficio de
+                todos. Se trata de construir juntos un entorno educativo que
+                refleje nuestras necesidades y aspiraciones.
               </p>
             </div>
           </div>
@@ -170,6 +177,7 @@ function LoginPage() {
           </div>
         </div>
       )}
+      {mensaje2}
     </div>
   );
 }

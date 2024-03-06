@@ -22,6 +22,25 @@ function MensajeError404() {
     </div>
   );
 }
+function MensajeError405() {
+  return (
+    <div className="container-mensaje-votos-error">
+      <div className="conatiner-mensaje">
+        <div className="container-blue"></div>
+
+        <div className="container-white">
+          <div className="container-mensaje-p">
+            <p>Las votaciones aún no comienzan.</p>
+          </div>
+
+          <div className="container-button">
+            <button onClick={redirect}>Salir</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 function MensajeError500() {
   return (
     <div className="container-mensaje-votos-error">
@@ -34,7 +53,7 @@ function MensajeError500() {
           </div>
 
           <div className="container-button">
-          <button onClick={redirect}>Salir</button>
+            <button onClick={redirect}>Salir</button>
           </div>
         </div>
       </div>
@@ -53,7 +72,7 @@ function MensajeVoto202() {
           </div>
 
           <div className="container-button">
-          <button onClick={redirect}>Salir</button>
+            <button onClick={redirect}>Salir</button>
           </div>
         </div>
       </div>
@@ -61,4 +80,4 @@ function MensajeVoto202() {
   );
 }
 
-export { MensajeError404, MensajeError500, MensajeVoto202 };
+export { MensajeError404, MensajeError500, MensajeVoto202, MensajeError405 };
