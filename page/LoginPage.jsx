@@ -137,11 +137,11 @@ function LoginPage() {
             <img src={lineaSVG} alt="SVG de líneas" />
             <div className="container-text">
               <p className="bienvenidad">
-                ¡Bienvenido al dia de votaciones en el CPYA!
+                ¡Bienvenido al día de votaciones en el CPYA!
               </p>
 
               <p className="text-1">
-                Aqui podras votar por el Aprendiz que representara <br /> tu
+                Aquí podrás votar por el Aprendiz que representara <br /> tu
                 jornada.
               </p>
               <p className="text-2">
